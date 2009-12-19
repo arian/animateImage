@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Mootools Animated Image</title>
+
+<link  href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="mootools-1.2.4-core.js" type="text/javascript"></script>
+<script src="../Source/AnimateImage.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!-- 
+
+window.addEvent('domready',function(){
+
+	var myAnimation = new AnimateImage('gnome-spinner.png',{
+		width: 22,
+		height: 22,
+		rows: 5,
+		cols: 7,
+		fps: 10
+	});
+	$(myAnimation).inject($('spinner'));
+	
+});
+	
+// -->	
+</script>
+
+
+</head>
+<body>
+
+<h1>Mootools Animated Image (PNG)</h1>
+
+<p>This is a script that creates an animated image (png or gif/jpg).</p>
+
+<h2>Demo</h2>
+<div id="spinner"></div>
+
+<pre>
+<strong>Javascript</strong>	
+window.addEvent('domready',function(){
+	
+	var myAnimation = new AnimateImage('gnome-spinner.png',{
+		width: 22,
+		height: 22,
+		rows: 5,
+		cols: 7,
+		fps: 10
+	});
+	$(myAnimation).inject($('spinner'));
+	
+});
+</pre>
+
+
+
+<pre>
+<strong>HTML</strong>
+&lt;div id=&quot;spinner&quot;&gt;&lt;/div&gt;
+</pre>
+<strong>Image</strong><br />
+<img src="gnome-spinner.png" alt="GNOME-Spinner" />
+
+
+<h2>Docs</h2>
+
+<div id="overview">
+	<ul>
+		<li>
+			<a href="#AnimateImage">AnimateImage</a>
+			<ul>
+				<li><a href="#start">start</a></li>
+				<li><a href="#stop">stop</a></li>
+				<li><a href="#reset">reset</a></li>
+				<li><a href="#setFrame">setFrame</a></li>
+				<li><a href="#getFrame">getFrame</a></li>
+				<li><a href="#set">set</a></li>
+				<li><a href="#get">get</a></li>
+				<li><a href="#speed">speed</a></li>
+			</ul>
+		</li>
+		<li><a href="#Element.animateImage">Element.animateImage</a></li>
+		<li>
+			<a href="#Element.Properties">Element.Properties</a>
+			<ul>
+				<li><a href="#pset">set</a></li>
+				<li><a href="#pget">get</a></li>				
+			</ul>
+		</li>
+		
+	</ul>
+</div>
+
+<div class="docs">
+	<h3><a name="AnimateImage"></a>Class: AnimateImage</h3>
+	<div class="section">
+		
+		<h4>Syntax</h4>
+		
+		<pre>var myAnimation = new AnimateImage(url [,options]);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>url - (string) the url of the image</li>
+			<li>options - (object, optional) the options for the animation</li>
+		</ol>
+		
+		<h4>Options</h4>
+		<ul>
+			<li>width - (int: default 16) The width of the image viewport</li>
+			<li>height - (int: default 16) The height of the image viewport</li>
+			<li>rows - (int: default 1) The number of rows</li>
+			<li>cols - (int: default 7) The number of columns</li>
+			<li>fps - (int: default 24) Frames Per Second</li>
+			<li>autostart - (bool: default true) Should the animation start automatically</li>
+		</ul>
+	</div>
+	
+	
+	<h3><a name="start"></a>AnimateImage.start</h3>
+	<div class="section">
+		<p>This method will start the animation</p>
+	</div>
+	
+	<h3><a name="stop"></a>AnimateImage.stop</h3>
+	<div class="section">
+		<p>This method will stop the animation</p>
+	</div>
+	
+	<h3><a name="reset"></a>AnimateImage.reset</h3>
+	<div class="section">
+		<p>This method will stop and restart the animation</p>
+	</div>
+	
+	<h3><a name="getFrame"></a>AnimateImage.getFrame</h3>
+	<div class="section">
+		<p>
+			This method will return the frame number where the animation is.
+			This value will between 0 and (options.cols * options.rows)
+		</p>
+	</div>
+	
+	<h3><a name="setFrame"></a>AnimateImage.setFrame</h3>
+	<div class="section">
+		<p>This method will set the animation to a cerain frame.</p>
+		<h4>Syntax</h4>
+		
+		<pre>var myAnimation = new Awf.pngAnimation(url [,options]);
+myAnimation.setFrame(frame);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>frame - (int) the frame number between 0 and (options.cols * options.rows)</li>
+		</ol>
+	</div>
+	
+	<h3><a name="set"></a>AnimateImage.set</h3>
+	<div class="section">	
+		<p>This method will set one of the options and reset the animation.</p>
+		<h4>Syntax</h4>
+		
+		<pre>var myAnimation = new Awf.pngAnimation(url [,options]);
+myAnimation.set(optionKey,value);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>optionKey - (string) the option name.</li>
+			<li>value - (mixed) the new value of the option</li>
+		</ol>
+	</div>
+	
+	<h3><a name="get"></a>AnimateImage.get</h3>
+	<div class="section">		
+		<p>This method will set one of the options and reset the animation.</p>
+		<h4>Syntax</h4>
+		
+		<pre>var myAnimation = new Awf.pngAnimation(url [,options]);
+myAnimation.get(optionKey);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>optionKey - (string) the option name.</li>
+		</ol>
+	</div>	
+
+	
+	<h3><a name="speed"></a>AnimateImage.speed</h3>
+	<div class="section">		
+		<p>This method will lets you set the speed</p>
+		<h4>Syntax</h4>
+		
+		<pre>var myAnimation = new Awf.pngAnimation(url [,options]);
+myAnimation.speed(upOrDown[,value]);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>upOrDown - (string) <em>up</em> to increase or <em>down</em> to decrease the the animation speed</li>
+			<li>value - (int: default 5) The </li>
+		</ol>
+	</div>	
+	
+	<h3><a name="Element.animateImage"></a>Element.animateImage</h3>
+	<div class="section">
+		<p>	
+			You can use this method with the image tag. This method will
+			search for the src tag and will apply the animation
+		</p>
+	
+		<h4>Syntax</h4>
+		
+		<pre>&lt;img src=&quot;gnome-spinner.png&quot; id=&quot;spinner&quot; />
+
+
+document.id(&#39;spinner&#39;).animateImage([options]);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>options - (object, optional) the options for the animation</li>
+		</ol>
+	</div>	
+	
+	<h3><a name="pset"></a><a name="Element.Properties"></a>Element.Properties.set</h3>
+	<div class="section">
+		<p>	
+			Like Fx.Tween you can use Element.set and Element.get for 
+			<em>animateImage</em>. This will only work for the img tag!
+		</p>
+	
+		<h4>Syntax</h4>
+		
+		<pre>&lt;img src=&quot;gnome-spinner.png&quot; id=&quot;spinner&quot; />
+		
+		
+document.id(&#39;spinner&#39;).set(&#39;animateImage&#39;,[options]);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>options - (object, optional) the options for the animation</li>
+		</ol>
+	</div>	
+
+	<h3><a name="pget"></a>Element.Properties.get</h3>
+	<div class="section">
+		<p>	
+			Like Fx.Tween you can use Element.set and Element.get for 
+			<em>animateImage</em>. This will only work for the img tag!
+		</p>
+	
+		<h4>Syntax</h4>
+		
+		<pre>&lt;img src=&quot;gnome-spinner.png&quot; id=&quot;spinner&quot; />
+		
+		
+document.id(&#39;spinner&#39;).get(&#39;animateImage&#39;,[options]);</pre>
+		
+		<h4>Arguments</h4>
+		<ol>
+			<li>options - (object, optional) the options for the animation</li>
+		</ol>
+		
+		<h4>Returns</h4>
+		<p>(object) - AnimateImage instance</p>
+	</div>	
+
+</div>
+
+<h2>Download &amp; links</h2>
+
+<p>You can download this from MooTools Forge</p>
+
+<h2>Dependencies</h2>
+<ul>
+	<li>
+		Mootools
+		<ul>
+			<li>Element.Style</li>
+			<li>Class.Extras</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>License</h2>
+<p>
+	MIT-style license.
+</p>
+
+<h2>Created By</h2>
+<p>
+	<a href="http://www.aryweb.nl">Aryweb Webdevelopment</a>
+</p>
+
+
+</body>
+</html>
