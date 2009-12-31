@@ -27,8 +27,8 @@ How to use
 - height: (*int*) The height of the image viewport
 - rows: (*int*: default 1) The number of rows
 - cols: (*int*: default 7) The number of columns
-- fps: (*int*: default 24) Frames Per Second</li>
-- autostart: (*bool*: default true) Should the animation start automatically</li>
+- fps: (*int*: default 24) Frames Per Second
+- autostart: (*bool*: default true) Should the animation start automatically
 
 ### Returns:
 
